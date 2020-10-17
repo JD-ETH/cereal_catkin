@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(cereal_catkin)
-find_package(catkin REQUIRED)
-catkin_package()
+find_package(catkin_simple REQUIRED)
+catkin_simple()
 include(ExternalProject)
 
 set(CEREAL_CPP_TAG 3e4d1b84cab4891368d2179a61a7ba06a5693e7f)
@@ -18,6 +18,6 @@ ExternalProject_Add(cereal_src
 install(DIRECTORY ${CATKIN_DEVEL_PREFIX}/include/cereal
         DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}
         FILES_MATCHING PATTERN "*.h")
-install(DIRECTORY ${CATKIN_DEVEL_PREFIX}/lib/
-        DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-        FILES_MATCHING PATTERN "libcereal*")
+cs_export(INCLUDE_DIRS ${CATKIN_DEVEL_PREFIX}/include
+          DEPENDS ${_DEPENDS}
+          CFG_EXTRAS cereal-extras.cmake)
