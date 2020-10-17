@@ -1,0 +1,10 @@
+<package>
+  <name>cereal_catkin</name>
+  <version>0.1.0</version>
+  <description>cereal_catkin</description>
+  <maintainer email="jiadong.guo@outlook.com">Jiadong Guo</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>
